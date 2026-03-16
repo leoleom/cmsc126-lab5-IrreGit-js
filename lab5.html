@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title> IrreGit Student Records</title>
+    <script src="lab5_scripts.js" defer></script>
+</head>
+
+<body>
+
+    <h2>Current Date and Time</h2>
+    <button id="date_btn">Show Current Date</button>
+    <p id="time_output"></p>
+
+    <hr>
+
+    <h2>Student Registration</h2>
+
+    <form id="student_form">
+
+    <label>Generated Student ID:</label>
+    <p id="student_id_display"> </p>
+
+    <label>Name:</label><br>
+    <input type="text" id="name" pattern=".{6,} .+" title="Name must be more than 5 characters and contain a space" required ><br><br>
+
+    <label>Age:</label><br>
+    <input type="number" id="age" min="19" required><br><br>
+
+    <label>Email:</label><br>
+    <input type="email" id="email" pattern=".+@up\.edu\.ph" title="Email must end with @up.edu.ph" required><br><br>
+
+    <label>Course:</label><br>
+    <select id="course" required>
+        <option value="">Select Course</option>
+        <option>BA Food Appreciation</option>
+        <option>BA Applied Poetry of the Future</option>
+        <option>BS Computer Repair Shop</option>
+        <option>BS Video Gaming</option>
+        <option>BS Installing and Downloading</option>
+    </select>
+
+    <br><br>
+
+    <button type="button" id="submit_btn">Submit</button>
+
+    </form>
+
+    <p id="form_error" style="color:red"></p>
+
+    <hr>
+
+    <h2>Search Student</h2>
+
+    <input type="text" id="search_id" placeholder="Enter Student ID">
+    <button id="search_btn">Search Student</button>
+
+    <p id="search_result"></p>
+
+    <hr>
+
+    <h2>All Students</h2>
+
+    <button onclick="display_list()">Display All</button>
+
+    <div id="student_list"></div>
+
+</body>
+</html>
