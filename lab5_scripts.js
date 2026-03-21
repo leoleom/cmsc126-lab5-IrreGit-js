@@ -56,17 +56,54 @@ function display_list(){
 
 
 
-/* OPTIONAL FOR MEMBERS: Utility methods (leave blank if you don't want to do this :< ) */
-
-// generate a random student_number ("2024" + 5 random digits) 
-function generate_student_number() {
-
-
-
-
+// Blueprint for the Student object
+class Student {
+    constructor(studentNumber, name, age, email, course) {
+        this.studentNumber = studentNumber;
+        this.name = name;
+        this.age = age;
+        this.email = email;
+        this.course = course;
+    }
 }
 
-// validate inputs from the users once entered (maybe make sure no duplicates?)
-function validate_input(name, age, email, course){
+// Generate random and unique student_number ("2024" + 5 random digits) 
+function generate_student_number() {
+    let isUnique = false;
+    let newId = "";
+    
+    while (!isUnique) {
+        // Generate a random 5-digit number (between 10000 and 99999)
+        let randomDigits = Math.floor(Math.random() * 90000) + 10000;
+        newId = "2024" + randomDigits;
 
+        // Check the global students array to see if this ID already exists
+        let duplicate = students.find(student => student.studentNumber === newId);
+        if (!duplicate) {
+            isUnique = true; 
+        }
+    }
+    return newId;
+}
+
+// Validate inputs from the users once entered
+function validate_input(name, age, email, course) {
+    // Check Name: > 5 chars and contains a whitespace
+    if (name.length <= 5 || !name.includes(" ")) {
+        return "Error: Name must be more than 5 characters and contain a space.";
+    }
+    // Check Age: > 18 and < 99
+    if (isNaN(age) || age <= 18 || age >= 99) {
+        return "Error: Age must be a number greater than 18 and less than 99.";
+    }
+    // Check Email: ends with @up.edu.ph
+    if (!email.endsWith("@up.edu.ph")) {
+        return "Error: Email must end with @up.edu.ph.";
+    }
+    // Check Course: make sure one is selected
+    if (course === "") {
+        return "Error: Please select a course.";
+    }
+    
+    return "valid"; 
 }
