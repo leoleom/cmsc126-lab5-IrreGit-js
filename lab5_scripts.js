@@ -23,9 +23,52 @@ function time_now(){
 /* MEMBER 2 - Add object to the students array 
 MUST create object named "Student" that stores 
 properties in the array when submit is clicked     */
-document.getElementById("submit_btn").addEventListener("click", add_student);
-function add_student(){
 
+
+
+document.getElementById("submit_btn").addEventListener("click", add_student);
+
+function add_student(){
+    
+    // Grab values from the HTML inputs
+    let nameInput = document.getElementById("name").value;
+    let ageInput = parseInt(document.getElementById("age").value);
+    let emailInput = document.getElementById("email").value;
+    let courseInput = document.getElementById("course").value;
+    
+    let errorDisplay = document.getElementById("form_error");
+    let idDisplay = document.getElementById("student_id_display");
+
+    // Run the validation utility
+    let validationStatus = validate_input(nameInput, ageInput, emailInput, courseInput);
+
+    if (validationStatus !== "valid") {
+        // Display the error message and stop the function
+        errorDisplay.textContent = validationStatus;
+        return; 
+    }
+
+    // Clear any existing error messages if validation passes
+    errorDisplay.textContent = "Student successfully registered!";
+    errorDisplay.style.color = "green";
+
+    // Generate the unique ID
+    let newStudentId = generate_student_number();
+
+    // Create the new Student object
+    let newStudent = new Student(newStudentId, nameInput, ageInput, emailInput, courseInput);
+
+    // Add the object to the global array
+    students.push(newStudent);
+
+    // Update the UI to show the generated ID
+    idDisplay.textContent = newStudentId;
+
+    // Log it to the console to verify it worked
+    console.log("Current Students Array:", students);
+    
+    // Reset the form fields for the next entry
+    document.getElementById("student_form").reset();
 
 
 
