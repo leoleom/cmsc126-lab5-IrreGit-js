@@ -96,13 +96,17 @@ button:hover {
 }
 
 #search_result {
-    margin: 10px auto 0;
-    padding: 12px;
+    margin: 15px auto 0;
+    padding: 15px;
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 12px;
     width: fit-content;
-    line-height: 1.6;
+    line-height: 1.8;
+    font-family: Arial, sans-serif;
+    white-space: pre-line;
+    letter-spacing: 0.5px;
+    text-align: left;
     color: #f5f5f5;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);

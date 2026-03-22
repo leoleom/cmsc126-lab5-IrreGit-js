@@ -100,10 +100,10 @@ function find_student(){
 
     // store results
     let result =
-        "Student Number: " + student.studentNumber + "<br>" +
-        "Name: " + student.name + "<br>" +
-        "Age: " + student.age + "<br>" +
-        "Email: " + student.email + "<br>" +
+        "Student Number: " + student.studentNumber + "\n" +
+        "Name: " + student.name + "\n" +
+        "Age: " + student.age + "\n" +
+        "Email: " + student.email + "\n" +
         "Course: " + student.course;
 
     // return results to site
