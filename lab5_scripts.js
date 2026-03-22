@@ -13,10 +13,15 @@ The current time is 11:45 AM."      */
 
 document.getElementById("date_btn").addEventListener("click", time_now);
 function time_now(){
-    console.log("Hatdog");    //testing purposes please delete
+    const now = new Date();
 
+    const date = now.toLocaleDateString('en-US', {year: 'numeric', month: 'long', day: 'numeric'});
+    const wd = now.toLocaleDateString('en-US', {weekday: 'long'})
+    const time = now.toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric', hour12: true});
 
+    const msg = `Today is ${date}, ${wd}. \nThe current time is ${time}.`;
 
+    document.getElementById("time_output").innerText = msg;
 }
 
 
