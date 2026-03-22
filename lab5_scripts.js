@@ -87,10 +87,31 @@ does not exist                                      */
 document.getElementById("search_btn").addEventListener("click", find_student);
 function find_student(){
 
+    let id = document.getElementById("search_id").value;
 
+    let student = students.find(student => student.studentNumber === id);  // anonymous function for finding student
+
+    // check if student no. is not in student
+    if (!student) {
+        document.getElementById("search_result").innerText =
+            "Student record does not exist! Try a different ";
+        return;         // stop immediately
+    }
+
+    // store results
+    let result =
+        "Student Number: " + student.studentNumber + "<br>" +
+        "Name: " + student.name + "<br>" +
+        "Age: " + student.age + "<br>" +
+        "Email: " + student.email + "<br>" +
+        "Course: " + student.course;
+
+    // return results to site
+    document.getElementById("search_result").innerText = result;
 
 
 }
+
 
 /* MEMBER 4 - Display properties of students 
 MUST display all objects (values) in the array       */ 
