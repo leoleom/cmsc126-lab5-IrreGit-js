@@ -116,13 +116,37 @@ function find_student(){
 /* MEMBER 4 - Display properties of students 
 MUST display all objects (values) in the array       */ 
 document.getElementById("display_btn").addEventListener("click", display_list);
-function display_list(){
+function display_list() {
+    // get the HTML element where student records will be displayed
+    let displayArea = document.getElementById("student_list");
 
+    // check if there are no students in the array
+    if (students.length === 0) {
+        displayArea.innerHTML = "No student records found.";
+        return;
+    }
 
+    let output = "";
 
+    // loop through each student object in the array
+    for (let i = 0; i < students.length; i++) {
 
+        // store current student
+        let student = students[i];
+
+        // add each student's details to the output string
+        output +=
+            "Student Number: " + students.studentNumber + "<br>" +
+            "Name: " + students.name + "<br>" +
+            "Age: " + students.age + "<br>" +
+            "Email: " + students.email + "<br>" +
+            "Course: " + students.course + "<br><br>";
+    }
+
+    
+    // display all student records in the webpage
+    displayArea.innerHTML = output;
 }
-
 
 
 // Blueprint for the Student object
