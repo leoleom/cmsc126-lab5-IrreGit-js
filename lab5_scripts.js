@@ -136,14 +136,13 @@ function display_list() {
 
         // add each student's details to the output string
         output +=
-            "Student Number: " + students.studentNumber + "<br>" +
-            "Name: " + students.name + "<br>" +
-            "Age: " + students.age + "<br>" +
-            "Email: " + students.email + "<br>" +
-            "Course: " + students.course + "<br><br>";
+            "Student Number: " + student.studentNumber + "<br>" +
+            "Name: " + student.name + "<br>" +
+            "Age: " + student.age + "<br>" +
+            "Email: " + student.email + "<br>" +
+            "Course: " + student.course + "<br><br>";
     }
 
-    
     // display all student records in the webpage
     displayArea.innerHTML = output;
 }
