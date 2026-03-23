@@ -10,18 +10,24 @@ MUST return the following in the format:
 
 "Today is March 20, 2026, Friday.
 The current time is 11:45 AM."      */
-
+let dateDisplayed = false;
 document.getElementById("date_btn").addEventListener("click", time_now);
 function time_now(){
-    const now = new Date();
+    dateDisplayed = !dateDisplayed;
 
-    const date = now.toLocaleDateString('en-US', {year: 'numeric', month: 'long', day: 'numeric'});
-    const wd = now.toLocaleDateString('en-US', {weekday: 'long'})
-    const time = now.toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric', hour12: true});
-
-    const msg = `Today is ${date}, ${wd}. \nThe current time is ${time}.`;
-
-    document.getElementById("time_output").innerText = msg;
+    let dis_msg = '';
+    let btn_msg = 'Show Current Date';
+    if (dateDisplayed){
+        const now = new Date();
+        const date = now.toLocaleDateString('en-US', {year: 'numeric', month: 'long', day: 'numeric'});
+        const wd = now.toLocaleDateString('en-US', {weekday: 'long'})
+        const time = now.toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric', hour12: true});
+    
+        dis_msg = `Today is ${date}, ${wd}. \nThe current time is ${time}.`;
+        btn_msg = 'Hide Current Date'
+    }
+    document.getElementById("date_btn").innerText = btn_msg;
+    document.getElementById("time_output").innerText = dis_msg;
 }
 
 
@@ -30,11 +36,8 @@ MUST create object named "Student" that stores
 properties in the array when submit is clicked     */
 
 
-
 document.getElementById("submit_btn").addEventListener("click", add_student);
-
 function add_student(){
-    
     // Grab values from the HTML inputs
     let nameInput = document.getElementById("name").value;
     let ageInput = parseInt(document.getElementById("age").value);
@@ -74,18 +77,22 @@ function add_student(){
     
     // Reset the form fields for the next entry
     document.getElementById("student_form").reset();
-
-
-
 }
-
 
 /* MEMBER 3 - Search students through Student ID 
 MUST display Student properties inputted by user
 using Student ID and displays error when object 
 does not exist                                      */ 
+document.getElementById("search_id").addEventListener("input", display_button)
+function display_button(){
+    let f = document.getElementById("search_btn").style; 
+    f.display = "block";
+    f.margin = "10px auto";
+}
 document.getElementById("search_btn").addEventListener("click", find_student);
 function find_student(){
+    document.getElementById("search_result").style.display = "block";
+    document.getElementById("search_btn").style.display = "none";
 
     let id = document.getElementById("search_id").value;
 
@@ -118,6 +125,7 @@ MUST display all objects (values) in the array       */
 document.getElementById("display_btn").addEventListener("click", display_list);
 function display_list() {
     // get the HTML element where student records will be displayed
+    document.getElementById("student_list").style.display = "block";
     let displayArea = document.getElementById("student_list");
 
     // check if there are no students in the array

@@ -96,6 +96,7 @@ button:hover {
 }
 
 #search_result {
+    display: none;
     margin: 15px auto 0;
     padding: 15px;
     background: rgba(255, 255, 255, 0.08);
@@ -114,6 +115,7 @@ button:hover {
 }
 
 #student_list {
+    display: none;
     margin: 15px auto 0;
     padding: 15px;
     background: rgba(255, 255, 255, 0.08);
