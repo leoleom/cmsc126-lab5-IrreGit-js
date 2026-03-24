@@ -23,8 +23,6 @@
 
     <form id="student_form">
 
-    <label>Generated Student ID:</label>
-    <p id="student_id_display"> </p>
 
     <label>Name:</label><br>
     <input type="text" id="name" pattern=".{6,} .+" title="Name must be more than 5 characters and contain a space" required ><br><br>
@@ -44,14 +42,21 @@
         <option>BS Video Gaming</option>
         <option>BS Installing and Downloading</option>
     </select>
+    <br>
 
-    <br><br>
 
     <button type="button" id="submit_btn">Submit</button>
 
     </form>
 
     <p id="form_error" style="color:red"></p>
+
+    <div id="new_student" style="display: none;">
+        <label>Your Generated Student ID:</label>
+        <p id="student_id_display"> </p>
+        <button type="button" id="new_stud_btn">New Student</button>
+    </div>
+
 
     <hr>
 

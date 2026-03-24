@@ -71,12 +71,22 @@ function add_student(){
 
     // Update the UI to show the generated ID
     idDisplay.textContent = newStudentId;
+    document.getElementById("student_form").style.display = "none";
+    document.getElementById("new_student").style.display = "block";
 
     // Log it to the console to verify it worked
     console.log("Current Students Array:", students);
     
     // Reset the form fields for the next entry
     document.getElementById("student_form").reset();
+}
+
+document.getElementById("new_stud_btn").addEventListener("click", new_studentss);
+function new_studentss(){
+    document.getElementById("new_student").style.display = "none"; 
+    document.getElementById("form_error").style.display = "none";
+    document.getElementById("student_form").style.display = "block"; 
+
 }
 
 /* MEMBER 3 - Search students through Student ID 
@@ -126,6 +136,7 @@ document.getElementById("display_btn").addEventListener("click", display_list);
 function display_list() {
     // get the HTML element where student records will be displayed
     document.getElementById("student_list").style.display = "block";
+    document.getElementById("display_btn").innerText = "Update Display";
     let displayArea = document.getElementById("student_list");
 
     // check if there are no students in the array
