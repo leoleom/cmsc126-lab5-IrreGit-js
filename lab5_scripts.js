@@ -111,7 +111,7 @@ function find_student(){
     // check if student no. is not in student
     if (!student) {
         document.getElementById("search_result").innerText =
-            "Student record does not exist! Try a different ";
+            "Student record does not exist! Try a different one. ";
         return;         // stop immediately
     }
 
